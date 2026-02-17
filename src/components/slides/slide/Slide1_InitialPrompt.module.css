@@ -1,0 +1,152 @@
+/* ── Slide shell ─────────────────────────────────────────────────────────── */
+.slide {
+  width: 100%;
+  height: 100%;
+  background: #221e1eff;
+  display: flex;
+  align-items: stretch;
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Left column ─────────────────────────────────────────────────────────── */
+.leftCol {
+  width: 18%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  padding: 5% 4% 5% 5%;
+}
+
+.mainLabel {
+  font-size: clamp(0.75rem, 1.5vw, 1.5rem);
+  font-weight: 400;
+  color: #e8e8e8;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+/* ── Right column ────────────────────────────────────────────────────────── */
+.rightCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  border-left: 1.5px solid rgba(255,255,255,0.12);
+  padding: 3% 4%;
+}
+
+/* ── Each section row ────────────────────────────────────────────────────── */
+.section {
+  display: flex;
+  align-items: stretch;
+  /* flex: 1; */
+  /* border-bottom: 1px solid rgba(255,255,255,0.08); */
+  position: relative;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.sectionContent {
+  flex: 1;
+  padding: 0 1.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3em;
+}
+
+/* ── Text styles ─────────────────────────────────────────────────────────── */
+.promptText {
+  font-size: clamp(0.65rem, 1.3vw, 0.95rem);
+  color: #e8e8e8;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.sectionHeader {
+  font-size: clamp(0.6rem, 1.3vw, 0.95rem);
+  color: #e8e8e8;
+  font-weight: 300;
+  /* margin-top: 0.35em; */
+  line-height: 1;
+}
+
+.list {
+  list-style: disc;
+  padding-left: 1.4em;
+  margin: 0.1em 0 0.1em;
+}
+
+.list li {
+  font-size: clamp(0.6rem, 1.3vw, 0.95rem);
+  color: #e8e8e8;
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 0.15em;
+}
+
+/* ── Animated label + divider on the right ──────────────────────────────── */
+.sectionLabel {
+  width: 18%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 1%;
+  position: relative;
+
+  /* hidden by default */
+  opacity: 0;
+  transform: translateX(12px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sectionLabel.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.labelText {
+  font-size: clamp(0.7rem, 1.30vw, 1.2rem);
+  color: #e08e5e;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  margin-top: 6px;
+}
+
+/* ── Horizontal divider that draws in from left ──────────────────────────── */
+.vDivider {
+  position: absolute;
+  left: 0;
+  width: 1.5px;
+  background: #e08e5e;
+  height: 0%;
+  transition: height 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.05s;
+}
+.hDivider {
+  height: 1.5px;
+  background: #e08e5e;
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.05s;
+  align-self: stretch;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+}
+
+.hDividerVisible {
+  width: 100%;
+}
+.vDividerVisible {
+  height: 100%;
+}
+
+

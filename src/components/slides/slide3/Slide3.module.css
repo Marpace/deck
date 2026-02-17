@@ -1,0 +1,151 @@
+/* ── Slide shell ─────────────────────────────────────────────────────────── */
+.slide {
+  width: 100%;
+  height: 100%;
+  background: #1a1a18;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+  padding: 4% 6%;
+  gap: clamp(14px, 3.5%, 32px);
+}
+
+/* ── Heading ─────────────────────────────────────────────────────────────── */
+.heading {
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #F5F0E8;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* ── Two-column layout ───────────────────────────────────────────────────── */
+.columns {
+  display: flex;
+  gap: clamp(24px, 5%, 60px);
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 700px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(6px, 1.5%, 14px);
+  flex: 1;
+
+  /* Hidden by default — reveal per step */
+  opacity: 0;
+  transform: translateY(24px) scale(0.97);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.colVisible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ── Column label ────────────────────────────────────────────────────────── */
+.label {
+  font-size: clamp(0.85rem, 1.8vw, 1.3rem);
+  font-weight: 400;
+  color: #f0ece4;
+  letter-spacing: 0.01em;
+  padding-left: 2px;
+}
+
+/* ── Card ────────────────────────────────────────────────────────────────── */
+.card {
+  width: 100%;
+  aspect-ratio: 1.3 / 1;
+  background: #2a2820;
+  border-radius: clamp(8px, 1.5vw, 14px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 2px 12px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.svg {
+  width: 90%;
+  height: 90%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CLAUDE CARD ANIMATIONS
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.hidden {
+  opacity: 0;
+}
+
+/* Code lines stagger in */
+@keyframes lineIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.codeLine1 { animation: lineIn 0.35s ease both; animation-delay: 0.15s; }
+.codeLine2 { animation: lineIn 0.35s ease both; animation-delay: 0.30s; }
+.codeLine3 { animation: lineIn 0.35s ease both; animation-delay: 0.45s; }
+.codeLine4 { animation: lineIn 0.35s ease both; animation-delay: 0.60s; }
+
+/* Blinking cursor */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.cursor {
+  animation: cursorBlink 0.9s step-end infinite;
+  animation-delay: 0.7s;
+}
+
+/* Chat bubble rises in */
+@keyframes bubbleRise {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.bubbleIn {
+  animation: bubbleRise 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.8s;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CANVA CARD ANIMATIONS
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes canvaFadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.canvaEl1 { animation: canvaFadeUp 0.3s ease both; animation-delay: 0.10s; }
+.canvaEl2 { animation: canvaFadeUp 0.3s ease both; animation-delay: 0.25s; }
+.canvaEl3 { animation: canvaFadeUp 0.3s ease both; animation-delay: 0.40s; }
+.canvaEl4 { animation: canvaFadeUp 0.3s ease both; animation-delay: 0.55s; }
+
+/* AI sparkle badge pulses */
+@keyframes sparkPulse {
+  0%, 100% { transform: scale(1) rotate(0deg);   }
+  25%       { transform: scale(1.15) rotate(8deg);  }
+  75%       { transform: scale(1.1) rotate(-6deg); }
+}
+
+.aiSpark {
+  animation: canvaFadeUp 0.3s ease both, sparkPulse 2.4s ease-in-out 0.7s infinite;
+  transform-origin: 210px 62px;
+}

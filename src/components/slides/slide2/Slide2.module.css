@@ -1,0 +1,178 @@
+/* ── Slide shell ─────────────────────────────────────────────────────────── */
+.slide {
+  width: 100%;
+  height: 100%;
+  background: #1e1c18;
+  display: flex;
+  align-items: stretch;
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Left text column ────────────────────────────────────────────────────── */
+.leftCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8% 6% 8% 7%;
+  gap: clamp(10px, 2.5%, 22px);
+}
+
+.title {
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #f0ece4;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.body {
+  font-size: clamp(0.65rem, 1.35vw, 0.95rem);
+  color: #b8b4aa;
+  line-height: 1.75;
+  font-weight: 300;
+  /* max-width: 28ch; */
+  width: 85%;
+}
+
+/* ── Right card column ───────────────────────────────────────────────────── */
+.rightCol {
+  width: 46%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6% 5%;
+}
+
+.card {
+  background: #f0ece2;
+  border-radius: clamp(14px, 2.5vw, 24px);
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow:
+    0 4px 24px rgba(0,0,0,0.28),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+.illustration {
+  width: 88%;
+  height: 88%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ANIMATIONS — only active when .animated classes are applied (step >= 1)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Screen glitch ───────────────────────────────────────────────────────── */
+@keyframes screenGlitch {
+  0%, 100% { fill: #bfccd8; transform: translateX(0); }
+  10%       { fill: #c8b8b0; transform: translateX(-2px); }
+  20%       { fill: #bfccd8; transform: translateX(2px); }
+  30%       { fill: #b0c0d0; transform: translateX(0); }
+  45%       { fill: #d0b8b0; transform: translateX(-1px); }
+  50%       { fill: #bfccd8; transform: translateX(0); }
+  70%       { fill: #c0b0c8; transform: translateX(1px); }
+  80%       { fill: #bfccd8; transform: translateX(0); }
+}
+
+.screenGlitch {
+  animation: screenGlitch 1.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+
+/* ── WiFi arcs — staggered blink out ─────────────────────────────────────── */
+@keyframes wifiBlink {
+  0%, 30%  { opacity: 1; }
+  40%      { opacity: 0.1; }
+  55%      { opacity: 0.8; }
+  65%      { opacity: 0; }
+  80%      { opacity: 0.6; }
+  100%     { opacity: 0; }
+}
+
+.wifiArc1Blink {
+  animation: wifiBlink 1.4s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+.wifiArc2Blink {
+  animation: wifiBlink 1.4s ease-in-out infinite;
+  animation-delay: 0.35s;
+}
+.wifiArc3Blink {
+  animation: wifiBlink 1.4s ease-in-out infinite;
+  animation-delay: 0.1s;
+}
+.wifiDotBlink {
+  animation: wifiBlink 1.4s ease-in-out infinite;
+  animation-delay: 0.75s;
+}
+
+/* ── Projector indicator light blink ─────────────────────────────────────── */
+@keyframes indicatorBlink {
+  0%, 100% { opacity: 1; }
+  25%      { opacity: 0.15; }
+  50%      { opacity: 0.9; }
+  75%      { opacity: 0.2; }
+}
+
+.indicatorBlink {
+  animation: indicatorBlink 0.7s ease-in-out infinite;
+}
+
+/* ── Projector beam flicker ──────────────────────────────────────────────── */
+/* @keyframes beamFlicker {
+  0%, 100%  { opacity: 0.9; transform: scaleY(1); }
+  15%       { opacity: 0.3; transform: scaleY(0.85); }
+  30%       { opacity: 0.8; transform: scaleY(1); }
+  50%       { opacity: 0.15; transform: scaleY(0.7); }
+  65%       { opacity: 0.7; transform: scaleY(1.05); }
+  80%       { opacity: 0.2; transform: scaleY(0.8); }
+}
+
+.beamFlicker {
+  animation: beamFlicker 1.4s ease-in-out infinite;
+  transform-origin: right center;
+} */
+
+/* ── Zap / lightning bolt ──────────────────────────────────────────────────
+@keyframes zapFlash {
+  0%, 100%  { opacity: 0; }
+  20%       { opacity: 1; }
+  35%       { opacity: 0.2; }
+  50%       { opacity: 1; }
+  60%       { opacity: 0; }
+} */
+
+/* .zapGroup {
+  animation: zapFlash 1.4s ease-in-out infinite;
+  animation-delay: 0.2s;
+} */
+
+/* ── Warning icon — fades in and pulses ──────────────────────────────────── */
+/* @keyframes warningAppear {
+  0%   { opacity: 0;   transform: scale(0.5) translateY(4px); }
+  30%  { opacity: 1;   transform: scale(1.1) translateY(0); }
+  50%  { transform: scale(1); }
+  100% { opacity: 1;   transform: scale(1); }
+}
+
+@keyframes warningPulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.12); }
+}
+
+.warningGroup {
+  animation:
+    warningAppear 0.5s cubic-bezier(0.22, 1, 0.36, 1) both,
+    warningPulse 1s ease-in-out 0.5s infinite;
+  transform-origin: 119px 95px;
+} */

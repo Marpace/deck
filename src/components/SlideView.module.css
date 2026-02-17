@@ -1,0 +1,9 @@
+.waiting {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: rgba(245,240,232,0.3);
+  text-transform: uppercase;
+}
+
+
