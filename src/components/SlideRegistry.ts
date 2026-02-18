@@ -1,9 +1,11 @@
 import Slide1 from "./slides/slide1/Slide1";
 import Slide2 from "./slides/slide2/Slide2";
 import Slide3 from "./slides/slide3/Slide3";
+import Slide4 from "./slides/slide4/Slide4";
 import Slide5 from "./slides/slide5/Slide5";
+import Slide6 from "./slides/slide6/Slide6";
 
-import Slide1_InitialPrompt from "./slides/slide/Slide1_InitialPrompt";
+
 // Import future slide components here:
 // import Slide2_... from "./slides/Slide2_...";
 
@@ -14,7 +16,7 @@ export const SLIDE_COMPONENTS: Record<string, React.ComponentType<{ step: number
   Slide1,
   Slide2,
   Slide3,
-  Slide1_InitialPrompt,
+  Slide4,
   Slide5,
-  // Slide2_...,
+  Slide6,
 };

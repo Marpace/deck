@@ -17,7 +17,7 @@ export const SLIDES: Slide[] = [
   {
     id: 0,
     component: "Slide1",
-    totalSteps: 1,  
+    totalSteps: 0,  
   },
   {
     id: 1,
@@ -31,7 +31,7 @@ export const SLIDES: Slide[] = [
   },
   {
     id: 3,
-    component: "Slide1_InitialPrompt",
+    component: "Slide4",
     totalSteps: 3,  
   },
   {
@@ -39,4 +39,9 @@ export const SLIDES: Slide[] = [
     component: "Slide5",
     totalSteps: 0,
   },
+  {
+    id: 5,
+    component: "Slide6",
+    totalSteps: 0,
+  }
 ];

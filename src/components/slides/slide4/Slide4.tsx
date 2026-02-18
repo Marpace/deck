@@ -1,5 +1,5 @@
 "use client";
-import styles from "./Slide1_InitialPrompt.module.css";
+import styles from "./Slide4.module.css";
 
 interface Props {
   step: number; // 0 = base layout, 1 = Context, 2 = Specificity, 3 = Constraint
