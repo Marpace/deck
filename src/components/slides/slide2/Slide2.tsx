@@ -15,11 +15,7 @@ export default function Slide2_ConnectivityChallenges({ step }: Props) {
       <div className={styles.leftCol}>
         <h1 className={styles.title}>CONNECTIVITY<br />CHALLENGES</h1>
         <p className={styles.body}>
-          Connectivity challenges often disrupt
-          presentations, such as laptop-projector
-          mismatches, software glitches, and
-          unexpected interruptions impacting
-          engagement.
+          Connectivity issues can easily throw off a presentation. Laptop and projector not syncing, faulty or loose cables, random software glitches, or sudden interruptions can break the flow and distract the audience.
         </p>
       </div>
 
