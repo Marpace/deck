@@ -18,7 +18,7 @@ export default function Slide3_BuiltWith({ step }: Props) {
 
         {/* ── Claude AI ─────────────────────────────────────────────────── */}
         <div className={`${styles.col} ${step >= 1 ? styles.colVisible : ""}`}>
-          <p className={styles.label}>Claude AI</p>
+          <p className={styles.label}>Claude</p>
 
           <div className={styles.card}>
             {/* ── Claude graphic: terminal + chat bubble aesthetic ──────── */}
