@@ -75,3 +75,68 @@
   object-fit: cover;
   display: block;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .slide {
+    overflow-y: auto;
+    padding: 5% 5% 4% 5%;
+    gap: 16px;
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+    margin-bottom: 8px;
+  }
+
+  .body {
+    font-size: clamp(0.85rem, 3.5vw, 1.05rem);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .lower {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .imagePanel {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 16/10;
+    align-self: center;
+  }
+
+  .image {
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide {
+    padding: 4% 4% 3% 4%;
+    gap: 12px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .body {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    max-height: fit-content;
+  }
+
+  .lower {
+    gap: 16px;
+  }
+
+  .imagePanel {
+    max-width: 100%;
+  }
+}

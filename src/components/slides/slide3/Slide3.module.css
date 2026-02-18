@@ -10,7 +10,7 @@
   font-family: 'Roboto', system-ui, -apple-system, sans-serif;
   overflow: hidden;
   padding: 4% 6%;
-  gap: clamp(14px, 3.5%, 32px);
+  gap: clamp(14px, 5.5%, 32px);
 }
 
 /* ── Heading ─────────────────────────────────────────────────────────────── */
@@ -84,14 +84,73 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   CLAUDE CARD ANIMATIONS
+   MOBILE RESPONSIVE
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .slide {
+    overflow-y: auto;
+    padding: 5% 5%;
+    gap: 16px;
+  }
+
+  .heading {
+    font-size: clamp(1.8rem, 7vw, 2.2rem);
+  }
+
+  .columns {
+    flex-direction: column;
+    gap: 24px;
+    width: 60%;
+  }
+
+  .col {
+    width: 100%;
+    max-width: 350px;
+    align-self: center;
+  }
+
+  .label {
+    font-size: 1rem;
+  }
+
+  .card {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide {
+    padding: 4% 4%;
+    gap: 12px;
+  }
+
+  .heading {
+    font-size: 1.6rem;
+  }
+
+  .columns {
+    gap: 18px;
+  }
+
+  .col {
+    max-width: 100%;
+    gap: 8px;
+  }
+
+  .label {
+    font-size: 0.95rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ANIMATIONS
    ══════════════════════════════════════════════════════════════════════════ */
 
 .hidden {
   opacity: 0;
 }
 
-/* Code lines stagger in */
 @keyframes lineIn {
   from { opacity: 0; transform: translateX(-8px); }
   to   { opacity: 1; transform: translateX(0); }
@@ -102,7 +161,6 @@
 .codeLine3 { animation: lineIn 0.35s ease both; animation-delay: 0.45s; }
 .codeLine4 { animation: lineIn 0.35s ease both; animation-delay: 0.60s; }
 
-/* Blinking cursor */
 @keyframes cursorBlink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
@@ -113,7 +171,6 @@
   animation-delay: 0.7s;
 }
 
-/* Chat bubble rises in */
 @keyframes bubbleRise {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -123,10 +180,6 @@
   animation: bubbleRise 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: 0.8s;
 }
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   CANVA CARD ANIMATIONS
-   ══════════════════════════════════════════════════════════════════════════ */
 
 @keyframes canvaFadeUp {
   from { opacity: 0; transform: translateY(6px); }
@@ -138,7 +191,6 @@
 .canvaEl3 { animation: canvaFadeUp 0.3s ease both; animation-delay: 0.40s; }
 .canvaEl4 { animation: canvaFadeUp 0.3s ease both; animation-delay: 0.55s; }
 
-/* AI sparkle badge pulses */
 @keyframes sparkPulse {
   0%, 100% { transform: scale(1) rotate(0deg);   }
   25%       { transform: scale(1.15) rotate(8deg);  }

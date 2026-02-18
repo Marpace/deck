@@ -34,7 +34,6 @@
   color: #b8b4aa;
   line-height: 1.75;
   font-weight: 300;
-  /* max-width: 28ch; */
   width: 85%;
 }
 
@@ -68,10 +67,66 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   ANIMATIONS — only active when .animated classes are applied (step >= 1)
+   MOBILE RESPONSIVE
    ══════════════════════════════════════════════════════════════════════════ */
 
-/* ── Screen glitch ───────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .slide {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .leftCol {
+    flex: 0 0 auto;
+    padding: 6% 6% 4% 6%;
+    gap: 12px;
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+    line-height: 1.1;
+  }
+
+  .body {
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+    width: 100%;
+    line-height: 1.6;
+  }
+
+  .rightCol {
+    width: 100%;
+    flex: 0 0 auto;
+    padding: 4% 6% 6% 6%;
+  }
+
+  .card {
+    max-width: 400px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .leftCol {
+    padding: 5% 5% 3% 5%;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .body {
+    font-size: 0.85rem;
+  }
+
+  .rightCol {
+    padding: 3% 5% 5% 5%;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════════════════════════════════════════ */
+
 @keyframes screenGlitch {
   0%, 100% { fill: #bfccd8; transform: translateX(0); }
   10%       { fill: #c8b8b0; transform: translateX(-2px); }
@@ -88,8 +143,6 @@
   transform-origin: center;
 }
 
-
-/* ── WiFi arcs — staggered blink out ─────────────────────────────────────── */
 @keyframes wifiBlink {
   0%, 30%  { opacity: 1; }
   40%      { opacity: 0.1; }
@@ -116,7 +169,6 @@
   animation-delay: 0.75s;
 }
 
-/* ── Projector indicator light blink ─────────────────────────────────────── */
 @keyframes indicatorBlink {
   0%, 100% { opacity: 1; }
   25%      { opacity: 0.15; }
@@ -127,52 +179,3 @@
 .indicatorBlink {
   animation: indicatorBlink 0.7s ease-in-out infinite;
 }
-
-/* ── Projector beam flicker ──────────────────────────────────────────────── */
-/* @keyframes beamFlicker {
-  0%, 100%  { opacity: 0.9; transform: scaleY(1); }
-  15%       { opacity: 0.3; transform: scaleY(0.85); }
-  30%       { opacity: 0.8; transform: scaleY(1); }
-  50%       { opacity: 0.15; transform: scaleY(0.7); }
-  65%       { opacity: 0.7; transform: scaleY(1.05); }
-  80%       { opacity: 0.2; transform: scaleY(0.8); }
-}
-
-.beamFlicker {
-  animation: beamFlicker 1.4s ease-in-out infinite;
-  transform-origin: right center;
-} */
-
-/* ── Zap / lightning bolt ──────────────────────────────────────────────────
-@keyframes zapFlash {
-  0%, 100%  { opacity: 0; }
-  20%       { opacity: 1; }
-  35%       { opacity: 0.2; }
-  50%       { opacity: 1; }
-  60%       { opacity: 0; }
-} */
-
-/* .zapGroup {
-  animation: zapFlash 1.4s ease-in-out infinite;
-  animation-delay: 0.2s;
-} */
-
-/* ── Warning icon — fades in and pulses ──────────────────────────────────── */
-/* @keyframes warningAppear {
-  0%   { opacity: 0;   transform: scale(0.5) translateY(4px); }
-  30%  { opacity: 1;   transform: scale(1.1) translateY(0); }
-  50%  { transform: scale(1); }
-  100% { opacity: 1;   transform: scale(1); }
-}
-
-@keyframes warningPulse {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.12); }
-}
-
-.warningGroup {
-  animation:
-    warningAppear 0.5s cubic-bezier(0.22, 1, 0.36, 1) both,
-    warningPulse 1s ease-in-out 0.5s infinite;
-  transform-origin: 119px 95px;
-} */

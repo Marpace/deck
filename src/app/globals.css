@@ -127,6 +127,13 @@ input[type="text"]:focus {
   box-shadow: var(--shadow-lg);
 }
 
+@media screen and (max-width: 768px) {
+  .slide-area {
+    aspect-ratio: 4/6;
+  }
+  
+}
+
 .slide-content {
   position: absolute;
   inset: 0;
